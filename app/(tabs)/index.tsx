@@ -8,15 +8,15 @@ import { ThemedView } from '@/components/ThemedView';
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: '#fffffff', dark: '#ff795c' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/pngegg.png')}
           style={styles.reactLogo}
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">Hei!</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
@@ -50,6 +50,22 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 4: Get a new part</ThemedText>
+        <ThemedText>
+          Change something{' '}
+          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
+          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
+          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
+          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+        </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 5: Need more text</ThemedText>
+        <ThemedText>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam porro minus sit blanditiis dolores veniam reprehenderit provident numquam aperiam a!{' '}
+        </ThemedText>
+      </ThemedView>
     </ParallaxScrollView>
   );
 }
@@ -65,10 +81,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
+    height: 250,
+    width: 240,
     bottom: 0,
-    left: 0,
+    left: 59,
     position: 'absolute',
   },
 });
