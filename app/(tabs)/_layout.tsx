@@ -14,23 +14,21 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="index"
+        name="placeholder"
         options={{
-          title: "Settings",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
-          ),
+          href: null,
         }}
       />
-      <Tabs.Screen
-        name="index"
+      {/* Du kan bruke seksjonen under til å lage din egen knapp til din side, følg beskrivelsen i feltene */}
+      {/* <Tabs.Screen
+        name="bruk filnavn du valgte her"
         options={{
-          title: "Settings",
+          title: "Navn som skal vises på knapp",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
+            <FontAwesome size={28} name="Iconet ditt, velg fra autocomplete" color={color} />
           ),
         }}
-      />
+      /> */}
     </Tabs>
   );
 }
