@@ -28,11 +28,16 @@ export default function Index() {
               This is TouchableOpacity
             </Text>
           </TouchableOpacity>
-          <Pressable style={styles.modalButton}>
+
+          <Pressable style={({ pressed }) => [
+            styles.modalButton,
+            { backgroundColor: pressed ? '#4D4A8A' : '#2F2D56' }
+          ]}>
             <Link href="/modal" style={styles.modalButtonText}>
-            Let's open the modal!
+              Let's open the modal!
             </Link>
           </Pressable>
+
           <TextInput style={styles.textInputField}>Write your own text here</TextInput>
           <Text style={styles.text}>If you want to see how far you can scroll, fill the page with as much as you can</Text>
           <Image source={require('@/assets/images/shahadat-rahman-BfrQnKBulYQ-unsplash.jpg')} style={styles.image} />
@@ -100,20 +105,23 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   modalButton: {
-    width: 300,
+    width: 180,
+    height: 180,
     backgroundColor: '#2F2D56',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5,
+    borderRadius: 100,
     paddingRight: 15,
     paddingLeft: 15,
     paddingTop: 10,
     paddingBottom: 10,
     marginBottom: 10,
+    elevation: 20,
   },
   modalButtonText: {
     color: '#fff',
     fontSize: 18,
+    textAlign: 'center',
   },
   textInputField: {
     backgroundColor: '#E4DFFF',
