@@ -40,7 +40,7 @@ export default function Index() {
 
           <TextInput style={styles.textInputField}>Write your own text here</TextInput>
           <Text style={styles.text}>If you want to see how far you can scroll, fill the page with as much as you can</Text>
-          <Image source={require('@/assets/images/shahadat-rahman-BfrQnKBulYQ-unsplash.jpg')} style={styles.image} />
+          <Image source={{uri:'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}} style={styles.image} />
         </View>
 
       </ScrollView>
