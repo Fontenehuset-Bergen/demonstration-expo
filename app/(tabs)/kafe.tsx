@@ -9,6 +9,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { DrinkCard } from "../components/drinkCard";
 
 export default function Kafe() {
   const [content, setContent] = useState<Drinks[]>([]);
@@ -35,6 +36,7 @@ export default function Kafe() {
         Her er litt innhold som blir hentet fra sanity, dette eksempelet viser
         lett hvordan vi laster inn data og viser dette dynamisk i applikasjonen
       </Text>
+      <DrinkCard/>
       {loading ? (
         <ActivityIndicator />
       ) : (

@@ -2,9 +2,7 @@ import { Text, View, StyleSheet, ScrollView, Image, Pressable, TouchableOpacity,
 import { Link } from 'expo-router';
 
 export default function Index() {
-
   return (
-
     <SafeAreaView>
       <ScrollView style={styles.body}>
         <View style={styles.mainContainer}>
@@ -12,7 +10,6 @@ export default function Index() {
             <Text style={styles.pageHeaderText}>React Native</Text>
           </View>
           <Image source={require('@/assets/images/rodion-kutsaiev-0VGG7cqTwCo-unsplash.jpg')} style={styles.image} />
-
           <View style={styles.textContainer}>
             <Text style={styles.text}>Velkommen til Workshop</Text>
           </View>
@@ -28,7 +25,6 @@ export default function Index() {
               This is TouchableOpacity
             </Text>
           </TouchableOpacity>
-
           <Pressable style={({ pressed }) => [
             styles.modalButton,
             { backgroundColor: pressed ? '#4D4A8A' : '#2F2D56' }
@@ -37,16 +33,12 @@ export default function Index() {
               Let's open the modal!
             </Link>
           </Pressable>
-
           <TextInput style={styles.textInputField}>Write your own text here</TextInput>
           <Text style={styles.text}>If you want to see how far you can scroll, fill the page with as much as you can</Text>
-          <Image source={{uri:'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}} style={styles.image} />
+          <Image source={{ uri: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }} style={styles.image} />
         </View>
-
       </ScrollView>
-
     </SafeAreaView>
-
   );
 }
 
@@ -127,5 +119,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#E4DFFF',
     width: '90%',
   },
-
 });
