@@ -1,4 +1,6 @@
-import { StyleSheet, Text, View, Pressable, Image } from "react-native";
+import { StyleSheet, Text, View, Pressable, Image, TouchableOpacity, ScrollView, TextInput } from "react-native";
+import { Card } from "@/components/ui/card";
+import { Link } from "expo-router";
 
 export default function Index() {
   return (
