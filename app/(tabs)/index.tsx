@@ -6,8 +6,6 @@ export default function Index() {
     <ScrollView>
     <View style={styles.container}>
 
-      <Card/>
-      <Card/>
 
       <Text style={styles.headerText}>Header Text</Text>
       <Image style={styles.bilde} source={require('@/assets/images/img34.jpg')}></Image>
@@ -18,6 +16,15 @@ export default function Index() {
         <Text>Touchable Knapp</Text>
       </TouchableOpacity>
 
+
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
 
     </View>
     </ScrollView>
@@ -37,6 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
+    margin: 5,
   },
   bilde: {
     width: 300,

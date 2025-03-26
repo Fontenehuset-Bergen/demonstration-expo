@@ -12,9 +12,12 @@ export function Card() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'yellow',
+        backgroundColor: 'grey',
+        alignItems: 'center',
+        justifyContent: 'center',
         width: 100,
         height: 50,
-        margin: 10,
+        margin: 5,
+        borderRadius: 15,
     }
 })
