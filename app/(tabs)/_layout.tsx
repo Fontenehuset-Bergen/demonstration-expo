@@ -29,15 +29,15 @@ export default function TabLayout() {
         }}
       />
       {/* Du kan bruke seksjonen under til å lage din egen knapp til din side, følg beskrivelsen i feltene */}
-      {/* <Tabs.Screen
-        name="bruk filnavn du valgte her"
+      <Tabs.Screen
+        name="yurii"
         options={{
-          title: "Navn som skal vises på knapp",
+          title: "Yurii",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="Iconet ditt, velg fra autocomplete" color={color} />
+            <FontAwesome size={28} name="windows" color={color} />
           ),
         }}
-      /> */}
+      />
     </Tabs>
   );
 }
