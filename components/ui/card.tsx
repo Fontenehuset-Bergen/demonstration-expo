@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, Pressable, Image } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
+// Fordi dette er en komponent, eksporteres den med kun "export function Name()"
 export function Card() {
     return (
         <View style={styles.container}>
