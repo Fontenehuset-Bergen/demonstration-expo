@@ -7,9 +7,9 @@ export const client = createClient({
 
 export interface Drinks {
     title: string
-    beskrivelse: string
-    allergens: string[]
-    image: string
+    beskrivelse?: string
+    allergens?: string[]
+    image?: string
 }
 
 export async function getPosts() {
