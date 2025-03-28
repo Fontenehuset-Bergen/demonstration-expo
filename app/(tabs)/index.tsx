@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Pressable, TouchableOpacity, ScrollView, Image, Modal } from "react-native";
 import { Card } from "@/components/card";
+import { Link } from "expo-router";
 
 export default function Index() {
   return (
@@ -7,7 +8,7 @@ export default function Index() {
     <View style={styles.container}>
 
 
-      <Text style={styles.headerText}>Header Text</Text>
+      <Text style={styles.headerText}>Fontenehuset Bergen</Text>
       <Image style={styles.bilde} source={require('@/assets/images/img34.jpg')}></Image>
       <Pressable style={styles.pressableButton}>
         <Text>Knapp</Text>
@@ -15,6 +16,11 @@ export default function Index() {
       <TouchableOpacity style={styles.pressableButton}>
         <Text>Touchable Knapp</Text>
       </TouchableOpacity>
+      <Pressable style={styles.modalButton}>
+        <Link href="/modal" style = {styles.modalButtonText}>
+        Let's open the modal!
+        </Link>
+      </Pressable>
 
 
       <Card/>
@@ -53,7 +59,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   headerText: {
-    fontSize: 30,
-    color: 'red',
+    fontSize: 40,
+    color: 'orange',
+  },
+  modalButton: {
+    backgroundColor: "white",
+    borderRadius: 50,
+  },
+  modalButtonText: {
+    color: "red",
   }
 });
