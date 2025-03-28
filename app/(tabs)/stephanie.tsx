@@ -1,9 +1,7 @@
 import { Image, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput } from "react-native";
 import { Card } from "@/components/ui/cards";
 import { Link } from "expo-router";
-import { Modal } from "../modal";
 
-// Skift UniktNavn til noe du vill ha, BrukDenneNavneStilen
 export default function Stephanie() {
   return (
     <ScrollView style={styles.body}>
@@ -13,10 +11,15 @@ export default function Stephanie() {
           <Text style={styles.headerText}>Stephanie Reiso</Text>
           <Text style={styles.headerSubtext}>"Greetings, fellow newbies!"</Text>
         </View>
-        <Pressable style={styles.pressableButton}>
+        <Pressable
+          style={({ pressed }) => [
+            styles.button,
+            { backgroundColor: pressed ? 'yellow' : '#E4DFFF' }
+          ]}
+        >
           <Text style={styles.buttonText}>Pressable Button</Text>
         </Pressable>
-        <TouchableOpacity style={styles.pressableButton}>
+        <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Touchable Opacity</Text>
         </TouchableOpacity>
         <Pressable style={styles.modalButton}>
@@ -45,6 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  
   headerContainer: {
     width: "100%",
     alignItems: 'center',
@@ -62,13 +66,17 @@ const styles = StyleSheet.create({
   title: {
     textAlign: "center",
   },
-  pressableButton: {
-    width: 200,
-    padding: 10,
-    backgroundColor: '#ffccea',
-    borderRadius: 10,
+  button: {
+    width: 300,
+    backgroundColor: '#E4DFFF',
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 5,
+    paddingRight: 15,
+    paddingLeft: 15,
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginBottom: 10,
   },
   buttonText: {
     fontSize: 20,
@@ -98,5 +106,5 @@ const styles = StyleSheet.create({
   textInputField: {
     backgroundColor: '#e4dfff',
     width: '90%',
-  }
+  },
 });

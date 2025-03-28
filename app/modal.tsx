@@ -1,12 +1,12 @@
 import { StyleSheet, View, Text } from "react-native";
 
 
-export function Modal() {
+export default function Modal() {
     return (
         <View style={styles.container}>
             <Text style={styles.text}> This is our first modal</Text>
         </View>
-    )
+    );
 }
 
 
@@ -22,5 +22,5 @@ const styles = StyleSheet.create({
     text: {
         color: '#E4DFFF',
         fontSize: 20,
-    }
+    },
 })
