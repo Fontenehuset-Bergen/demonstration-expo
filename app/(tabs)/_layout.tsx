@@ -32,7 +32,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name='deterkattensin'
                 options={{
-                    title: "Det er katten sin",
+                    title: "Dette er katten sin side",
                     tabBarIcon: ({ color }) => (
                         <FontAwesome size={28} name='angellist' color={color} />
                     ),
