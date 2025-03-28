@@ -9,7 +9,7 @@ export default function Index() {
     <View style={styles.headerContainer}>
           <Text style={styles.headerText}>React Native</Text>
         </View>
-      <Image style={styles.bilde} source= {require('@/assets/images/icon.png')}></Image>
+      <Image style={styles.image} source= {require('@/assets/images/icon.png')}></Image>
       <View style ={styles.textContainer}>
         <Text style = {styles.text}>React Native Workshop</Text>
       </View>
