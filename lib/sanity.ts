@@ -1,18 +1,24 @@
 import { createClient } from "@sanity/client";
 
 export const client = createClient({
-  projectId: "xes78pqm",
-  dataset: "production",
+  projectId: "a8jqmtu6",
+  dataset: "kaffetest2",
 });
 
-export interface Drinks {
+//export interface Drinks {
+//    title: string
+//   beskrivelse?: string
+//    allergens?: string[]
+//    image?: string
+//}
+
+export interface coffee {
     title: string
-    beskrivelse?: string
-    allergens?: string[]
     image?: string
+    price: number
 }
 
 export async function getPosts() {
-  const posts: Drinks[] = await client.fetch('*[_type == "kafe"] {title, beskrivelse, allergens, "image": image.asset->url}');
+  const posts: coffee[] = await client.fetch('*[_type == "coffee"] {title, "image": image.asset->url, price}');
   return posts;
 }
