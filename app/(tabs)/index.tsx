@@ -33,8 +33,6 @@ export default function Index() {
         </Pressable>
 
         <TextInput style={styles.textInputField}></TextInput>
-        <Card />
-        <Card />
       </View>
 
     </ScrollView>

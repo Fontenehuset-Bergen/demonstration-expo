@@ -1,15 +1,24 @@
 import { Text, View, StyleSheet, Pressable, Image } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-export function Card() {
+interface CardProps {
+    title: string
+    beskrivelse: string
+    allergens: string[] //array of strings
+    image: string
+}
+
+// Fordi dette er en komponent, eksporteres den med kun "export function Name()"
+export function Card( {title, beskrivelse, allergens, image}: CardProps) {
     return (
         <View style={styles.container}>
             <View style={styles.card}>
-                <Image source={require('@/assets/images/mike-kenneally-tNALoIZhqVM-unsplash.jpg')}  style={styles.image} />
-                <Text style={styles.drinkName}>Cappuccino</Text>
-                <Text style={styles.drinkDescription} numberOfLines={2}>En espressobasert kaffedrikk som tilberedes med steamet melk, inkludert et lag av melkeskum.</Text>
+                <Image source={{uri: image}} style={styles.image} />
+                <Text style={styles.drinkName}>{title}</Text>
+                <Text style={styles.drinkDescription} numberOfLines={2}>{beskrivelse}</Text>
                 <View style={styles.infoContainer}>
-                    <Text style={styles.price}>30kr</Text>                
+                    <Text style={styles.price}>{allergens.join(", ")}</Text> 
+                                   {/* for å vise alt fra array til allergens, brukes .join() - ", " sier at det skal være komma og så mellomrom mellom hvert element  */}
                 <Pressable
                     style={({ pressed }) => [
                         styles.plusButton,

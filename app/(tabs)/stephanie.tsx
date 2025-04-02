@@ -1,14 +1,29 @@
 import { Image, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput } from "react-native";
-import { Card } from "@/components/ui/cards";
+import { Card } from "@/components/ui/card";
 import { Link } from "expo-router";
+import { Drinks, getPosts } from "@/lib/sanity";
+import { useState, useEffect } from "react";
+import { SmallCard } from "@/components/ui/smallCard";
+
 
 export default function Stephanie() {
+  const [drikker, setDrikker] = useState<Drinks[]>()
+
+  useEffect(() => {
+    const results = async () => {
+      setDrikker(await getPosts());
+    };
+    results()
+
+    console.log(drikker)
+  }, [])
+
   return (
     <ScrollView style={styles.body}>
       <View style={styles.container}>
         <Image style={styles.bilde} source={require('@/assets/images/portrait.jpg')} />
         <View style={styles.headerContainer}>
-          <Text style={styles.headerText}>Stephanie Reiso</Text>
+          <Text style={styles.headerText}>STEPHANIE REISO</Text>
           <Text style={styles.headerSubtext}>"Greetings, fellow newbies!"</Text>
         </View>
         <Pressable
@@ -22,13 +37,20 @@ export default function Stephanie() {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Touchable Opacity</Text>
         </TouchableOpacity>
+
+        <View style={styles.headerContainer}>
+          <Text style={styles.title}>Modals and Text-Input</Text>
+          <Text style={styles.descriptionText}>Adding elements such as modals, text-input fields and the like will add an interactive experience for users.</Text>
+        </View>
         <Pressable style={styles.modalButton}>
           <Link href="/modal" style={styles.modalButtonText}>Let's open the modal!</Link>
         </Pressable>
         <TextInput style={styles.textInputField}></TextInput>
-        <Card />
-        <Card />
-        <Card />
+        <View style={styles.headerContainer}>
+          <Text style={styles.title}>Cards</Text>
+          <Text style={styles.descriptionText}>The elements below can f.ex. be used in a café menu, adding interactive actions to them and so on.</Text>
+          {drikker?.slice(0, 5).map((drink) => <SmallCard key={drink.title} allergens={drink.allergens} beskrivelse={drink.beskrivelse} title={drink.title} image={drink.image} />)}
+        </View>
       </View>
     </ScrollView>
   );
@@ -47,8 +69,9 @@ const styles = StyleSheet.create({
     gap: 24,
     justifyContent: "center",
     alignItems: "center",
+    paddingBottom: 20,
+    // backgroundColor: "yellow",
   },
-  
   headerContainer: {
     width: "100%",
     alignItems: 'center',
@@ -62,9 +85,18 @@ const styles = StyleSheet.create({
   headerSubtext: {
     color: 'white',
     fontSize: 15,
+    marginBottom: 20,
   },
   title: {
     textAlign: "center",
+    color: "white",
+    fontSize: 20,
+    fontWeight: 600,
+    marginTop: 30,
+  },
+  descriptionText: {
+    color: "white",
+    marginBottom: 20,
   },
   button: {
     width: 300,
@@ -96,15 +128,20 @@ const styles = StyleSheet.create({
   modalButton: {
     width: 200,
     height: 200,
-    borderRadius: 50,
-    backgroundColor: 'pink'
+    borderRadius: 100,
+    backgroundColor: 'pink',
+    alignItems: "center",
+    justifyContent: "center",
 
   },
   modalButtonText: {
+    color: "purple",
+    fontSize: 18,
 
   },
   textInputField: {
     backgroundColor: '#e4dfff',
     width: '90%',
+    borderRadius: 10,
   },
 });
