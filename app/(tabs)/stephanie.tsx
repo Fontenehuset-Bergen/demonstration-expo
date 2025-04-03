@@ -1,22 +1,24 @@
 import { Image, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput } from "react-native";
 import { Card } from "@/components/ui/card";
 import { Link } from "expo-router";
-import { Drinks, getPosts } from "@/lib/sanity";
+import { Drinks, getPersons, getPosts, Person } from "@/lib/sanity";
 import { useState, useEffect } from "react";
 import { SmallCard } from "@/components/ui/smallCard";
+import { PeopleCard } from "@/components/ui/peopleCard";
 
 
 export default function Stephanie() {
   const [drikker, setDrikker] = useState<Drinks[]>()
+  const [people, setPeople] = useState<Person[]>()
 
   useEffect(() => {
     const results = async () => {
       setDrikker(await getPosts());
+      setPeople(await getPersons());
     };
     results()
+  }, []);
 
-    console.log(drikker)
-  }, [])
 
   return (
     <ScrollView style={styles.body}>
@@ -49,6 +51,15 @@ export default function Stephanie() {
         <View style={styles.headerContainer}>
           <Text style={styles.title}>Cards</Text>
           <Text style={styles.descriptionText}>The elements below can f.ex. be used in a café menu, adding interactive actions to them and so on.</Text>
+          {people && people.slice(0, 5).map((person) => (
+            <PeopleCard
+              key={person.fullName}
+              hobby={person.hobby}
+              description={person.description}
+              fullName={person.fullName}
+              portrait={person.portrait}
+            />
+          ))}
           {drikker?.slice(0, 5).map((drink) => <SmallCard key={drink.title} allergens={drink.allergens} beskrivelse={drink.beskrivelse} title={drink.title} image={drink.image} />)}
         </View>
       </View>

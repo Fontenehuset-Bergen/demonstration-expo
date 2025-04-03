@@ -1,16 +1,17 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { BottomTabBar } from "@react-navigation/bottom-tabs";
 import { Tabs } from "expo-router";
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "blue" }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: "pink", tabBarStyle: { backgroundColor: "#1c1429" }, headerStyle: { backgroundColor: "#1c1429" }, headerTintColor: "pink", headerTitleStyle: { fontFamily: "monospace", fontWeight: 900 } }}>
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="home" color={color} />
-          ), 
+          ),
         }}
       />
       <Tabs.Screen
@@ -31,7 +32,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="stephanie"
         options={{
-          title: "^w^",
+          title: "Introduction",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="child" color={color} />
           ),
