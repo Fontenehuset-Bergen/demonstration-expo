@@ -4,11 +4,16 @@ import { useEffect, useState } from "react";
 import { SmallCard } from "@/components/ui/smallCard";
 
 export default function Coffee() {
-  const [drikker, setDrikker] = useState<Drinks[]>();
+  const [drikker, setDrikker] = useState<Drinks[]>([]);
 
   useEffect(() => {
     const results = async () => {
-      setDrikker(await getPosts());
+	const result = await getPosts()
+	if(result) {
+	    setDrikker(await getPosts());
+	} else {
+	    setDrikker([]);
+	}
     };
 
     results()
@@ -16,14 +21,14 @@ export default function Coffee() {
   return (
     <View style={styles.container}>
       <Text>Her skal vi vise en kaffeliste</Text>
-      { drikker && drikker.map((drink) => <SmallCard key={drink.title} title={drink.title} image={drink.image} />)}
+	{/*drikker &&*/ drikker.map((drink) => <SmallCard key={drink.title} title={drink.title} image={drink.image} />)}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     justifyContent: "center",
     alignItems: "center",
   },

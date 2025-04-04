@@ -46,14 +46,14 @@ export default function Index() {
         <Pressable
           style={({ pressed }) => [
             styles.button,
-            { backgroundColor: pressed ? "yellow" : "#E4DFFF" },
+            { backgroundColor: pressed ? "blue" : "#E4DFFF" },
           ]}
         >
           {/* En pressable er en type knapp (Button) som kan tilpasses mye i forhold til funksjon og utseende. 
           I dette eksemplet henter den styling først fra styles.button, før det spesifiseres at bakgrunnsfargen skal være forskjellig om knappen er trykket inn eller ikke. 
           Styling lagt inn før kolon er effekten som blir aktivert når du trykker på knappen. */}
 
-          <Text style={styles.buttonText}>Pressable Button</Text>
+          <Text style={styles.buttonText}>Pressable Button </Text>
         </Pressable>
 
         <TouchableOpacity style={styles.button}>
@@ -63,7 +63,7 @@ export default function Index() {
 
         <Pressable style={styles.modalButton}>
           <Link href="/modal" style={styles.modalButtonText}>
-            Let's open the modal!
+            Let's open the model!
           </Link>
           {/* Dette er en enkel type modal som er laget i en annen fil, og importert øverst på denne siden. Det finnes også en innebygget Modal-komponent i React Native biblioteket. */}
         </Pressable>
@@ -133,11 +133,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   modalButton: {
-    width: 180,
-    height: 180,
+    width: 200,
+    height: 200,
     backgroundColor: "#2F2D56",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "start",
     borderRadius: 100,
     paddingRight: 15,
     paddingLeft: 15,
