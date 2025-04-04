@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import { coffee, getPosts } from "@/lib/sanity";
 import React, { useEffect, useState } from "react";
 import { SmallCard } from "@/components/ui/smallCard";
 
 export default function Coffee() {
   const [isLoading, setIsLoading] = useState(true);
-  const [drikker, setDrikker] = useState<coffee[]>();
+  const [drikker, setDrikker] = useState<coffee[]>([]);
 
   useEffect(() => {
     const results = async () => {
@@ -22,10 +22,19 @@ export default function Coffee() {
 
     results()
   }, []);
+
   return (
     <View style={styles.container}>
-      { drikker && drikker.map((drink) => <SmallCard key={drink.nameofcoffee} nameofcoffee={drink.nameofcoffee} image={drink.image} price={drink.price} />)}
-    </View>
+      {isLoading ? (
+      <Text>Loading...</Text>
+    ) : (
+      <FlatList
+      data={drikker}
+      renderItem={({ item }) => <SmallCard key={item._id} nameofcoffee={item.nameofcoffee} image={item.image} price={item.price} />}
+      keyExtractor={(item) => item._id}
+    />
+  )}
+      </View>
   );
 }
 
