@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Drinks, getPosts } from "@/lib/sanity";
+import { coffee, getPosts } from "@/lib/sanity";
 import { useEffect, useState } from "react";
 import { SmallCard } from "@/components/ui/smallCard";
 
 export default function Coffee() {
-  const [drikker, setDrikker] = useState<Drinks[]>();
+  const [drikker, setDrikker] = useState<coffee[]>();
 
   useEffect(() => {
     const results = async () => {
@@ -15,8 +15,7 @@ export default function Coffee() {
   }, []);
   return (
     <View style={styles.container}>
-      <Text>Her skal vi vise en kaffeliste</Text>
-      { drikker && drikker.map((drink) => <SmallCard key={drink.title} title={drink.title} image={drink.image} />)}
+      { drikker && drikker.map((drink) => <SmallCard key={drink.nameofcoffee} nameofcoffee={drink.nameofcoffee} image={drink.image} price={drink.price} />)}
     </View>
   );
 }

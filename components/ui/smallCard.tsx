@@ -1,11 +1,12 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import { Drinks } from "@/lib/sanity";
+import { coffee } from "@/lib/sanity";
 
-export function SmallCard({ title, image }: Drinks) {
+export function SmallCard({ nameofcoffee, image, price }: coffee) {
   return (
     <View style={style.container}>
       <Image source={{ uri: image }} style={style.image} />
-      <Text>{title}</Text>
+      <Text>{nameofcoffee}</Text>
+      <Text>{price}</Text>
     </View>
   );
 }
