@@ -1,25 +1,15 @@
-import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View, ActivityIndicator } from "react-native";
+import React from 'react';
+import { Image, StyleSheet, Text, View } from "react-native";
 import { coffee } from "@/lib/sanity";
 
 export function SmallCard({ nameofcoffee, image, price }: coffee) {
-  const[isLoading, setIsLoading] = useState(true);
-
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  }
 
   return (
     <View style={styles.container}>
-      {isLoading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
-      ) : (
       <Image 
       source={{ uri: image }} 
       style={styles.image} 
-      onLoad={handleImageLoad}
       />
-    )}
 
     <View style={styles.content}>
       <Text style={styles.name}>{nameofcoffee}</Text>

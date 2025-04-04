@@ -1,14 +1,23 @@
 import { StyleSheet, Text, View } from "react-native";
 import { coffee, getPosts } from "@/lib/sanity";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SmallCard } from "@/components/ui/smallCard";
 
 export default function Coffee() {
+  const [isLoading, setIsLoading] = useState(true);
   const [drikker, setDrikker] = useState<coffee[]>();
 
   useEffect(() => {
     const results = async () => {
-      setDrikker(await getPosts());
+      try {
+        setIsLoading(true);
+        const data = await getPosts();
+        setDrikker(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+        setIsLoading(false);
+      }
     };
 
     results()
