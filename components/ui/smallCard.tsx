@@ -46,9 +46,11 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 16,
-    flexGrow: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'stretch',
+    flexGrow: 0,
+    flexShrink: 0,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
   },
   label: {
     fontSize: 14,
