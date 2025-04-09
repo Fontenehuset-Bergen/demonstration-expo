@@ -39,11 +39,16 @@ const styles = StyleSheet.create({
   image: {
     height: 200,
     width: '100%',
-    resizeMode: 'cover'
+    resizeMode: 'cover',
+    objectFit: 'contain', // This ensures the image fits within the container without stretching
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   content: {
     padding: 16,
     flexGrow: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
   },
   label: {
     fontSize: 14,
