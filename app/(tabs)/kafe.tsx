@@ -9,6 +9,7 @@ export default function Coffee() {
   useEffect(() => {
     const results = async () => {
 	const result = await getPosts()
+	//code to return an array. Flatlist is best practice
 	if(result) {
 	    setDrikker(await getPosts());
 	} else {

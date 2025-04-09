@@ -68,6 +68,13 @@ export default function Index() {
           {/* Dette er en enkel type modal som er laget i en annen fil, og importert øverst på denne siden. Det finnes også en innebygget Modal-komponent i React Native biblioteket. */}
         </Pressable>
 
+        <Pressable style={styles.modalButton}>
+          <Link href="/placeholder" style={styles.modalButtonText}>
+            Let's open the place holder
+          </Link>
+          {/* Dette er en enkel type modal som er laget i en annen fil, og importert øverst på denne siden. Det finnes også en innebygget Modal-komponent i React Native biblioteket. */}
+        </Pressable>
+
         <TextInput style={styles.textInputField}></TextInput>
 
         {/* Her hentes to komponenter som er laget i et eget dokument, og importert øverst på denne siden. For å vise komponentene holder det å skrive < Navnet på komponenten />. 

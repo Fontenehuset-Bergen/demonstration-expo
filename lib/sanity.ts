@@ -16,3 +16,8 @@ export async function getPosts() {
   const posts: Drinks[] = await client.fetch('*[_type == "kafe"] {title, beskrivelse, allergens, "image": image.asset->url}');
   return posts;
 }
+
+export async function getQO(querry: string) {
+  const posts: object = await client.fetch();
+  return posts;
+}
