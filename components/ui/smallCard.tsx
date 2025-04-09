@@ -23,7 +23,7 @@ export function SmallCard({ nameofcoffee, image, price }: coffee) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#ffffff',
     borderRadius: 8,
     overflow: 'hidden',
     margin: 8,
