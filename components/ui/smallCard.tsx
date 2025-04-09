@@ -12,8 +12,10 @@ export function SmallCard({ nameofcoffee, image, price }: coffee) {
       />
 
     <View style={styles.content}>
-      <Text style={styles.name}>{nameofcoffee}</Text>
-      <Text style={styles.price}>{price}</Text>
+    <Text style={styles.label}>Kaffe:</Text>
+        <Text style={styles.name}>{nameofcoffee}</Text>
+        <Text style={styles.priceLabel}>Pris: </Text>
+        <Text style={styles.price}>{price} kr</Text>
     </View>
   </View>
   );
@@ -43,13 +45,24 @@ const styles = StyleSheet.create({
     padding: 16,
     flexGrow: 1,
   },
+  label: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 4,
+  },
   name: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 8,
   },
+  priceLabel: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 4,
+  },
   price: {
     fontSize: 16,
+    fontWeight: 'bold',
     color: '#666',
   }
 });

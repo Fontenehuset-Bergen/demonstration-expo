@@ -30,8 +30,8 @@ export default function Coffee() {
     ) : (
       <FlatList
       data={drikker}
-      renderItem={({ item }) => <SmallCard key={item._id} nameofcoffee={item.nameofcoffee} image={item.image} price={item.price} />}
-      keyExtractor={(item) => item._id}
+      renderItem={({ item }) => <SmallCard key={item.nameofcoffee} nameofcoffee={item.nameofcoffee} image={item.image} price={item.price} />}
+      keyExtractor={(item) => item.nameofcoffee}
     />
   )}
       </View>
