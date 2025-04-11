@@ -23,11 +23,12 @@ export interface Person {
     portrait: string
     hobby?: string[]
     description: string
+    country?: string
 }
 
 
 export async function getPersons() {
     const persons: Person[] = await client.fetch(
-        '*[_type == "person"] {fullName, hobby, description, "portrait": portrait.asset->url}');
+        '*[_type == "person"] {fullName, hobby, country, description, "portrait": portrait.asset->url}');
     return persons;
 };

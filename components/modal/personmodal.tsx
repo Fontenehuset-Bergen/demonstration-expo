@@ -1,11 +1,11 @@
-import { Image, Text, View, StyleSheet, Pressable, Modal } from "react-native"
+import { Image, Text, View, StyleSheet, Pressable } from "react-native"
 import { Person } from "@/lib/sanity"
 import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
 
 
 
-export function PeopleCard({ fullName, portrait, description, hobby, country }: Person) {
+export function PeopleModal({ fullName, portrait, description, hobby, country }: Person) {
     const [icon, setIcon] = useState(false)
 
 
@@ -14,7 +14,7 @@ export function PeopleCard({ fullName, portrait, description, hobby, country }: 
 
                 <View style={style.card}>
                     <View style={style.cardBox}>
-                        <View style={style.imageBackground}>
+                        <View>
                             <Image source={{ uri: portrait }} style={style.image} />
                         </View>
                         <View style={style.textContainer}>
@@ -32,14 +32,14 @@ export function PeopleCard({ fullName, portrait, description, hobby, country }: 
 
                             <Text style={style.description}>{description}</Text>
 
-                            <View style={style.allergenBox}>
+                            <View style={style.hobbyBox}>
 
                                 {country ? (
-                                    <Text style={style.allergens}>Country: {country}</Text>
+                                    <Text style={style.hobby}>Country: {country}</Text>
                                 ) : null
                                 }
                                 {hobby ? (
-                                    <Text style={style.allergens}>Hobbies: {hobby.join(", ")}</Text>
+                                    <Text style={style.hobby}>Hobbies: {hobby.join(", ")}</Text>
                                 ) : null
                                 }
                             </View>
@@ -60,13 +60,15 @@ const style = StyleSheet.create({
     container: {
         justifyContent: "center",
         alignItems: "center",
-        width: "100%",
+        // backgroundColor: "yellow",
+        width: "70%",
     },
     card: {
-        width: "90%",
-        height: 180,
+        width: 300,
+        height: 600,
         gap: 12,
         alignItems: "center",
+        justifyContent: "center",
         margin: 10,
         padding: 7,
         borderRadius: 10,
@@ -75,15 +77,16 @@ const style = StyleSheet.create({
         backgroundColor: "pink",
     },
     cardBox: {
-        display: "flex",
-        flexDirection: "row",
+        // display: "flex",
+        // flexDirection: "row",
         width: "100%",
-        height: 165,
-        gap: 12,
+        height: "100%",
+        gap: 20,
         alignItems: "center",
+        // justifyContent: "center",
         // margin: 10,
-        padding: 10,
-        paddingLeft: 0,
+        padding: 20,
+        // paddingLeft: 0,
         borderRadius: 10,
         borderBottomRightRadius: 0,
         backgroundColor: "white",
@@ -91,37 +94,32 @@ const style = StyleSheet.create({
     },
     imageBackground: {
         backgroundColor: "pink",
-        width: 118,
-        height: 118,
+        width: 180,
+        height: 180,
         borderRadius: 100,
         borderTopLeftRadius: 0,
-        top: -29,
-        left: -6,
         alignItems: "center",
         justifyContent: "center",
 
     },
     image: {
-        width: 110,
-        height: 110,
+        width: 200,
+        height: 200,
         borderRadius: 100,
-        borderColor: "white",
-        borderWidth: 3,
-        // elevation: 1,
+        elevation: 3,
         // top: 5,
         // left: 5,
         // borderLeftWidth: 1,
-        // elevation: 2,
     },
     textContainer: {
         display: "flex",
         flexDirection: "column",
         // justifyContent: "space-evenly",
-        width: "65%",
-        height: 120,
+        width: "90%",
+        // height: 120,
         gap: 10,
         // height: "100%",
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
         // backgroundColor: "green",
     },
     title: {
@@ -129,29 +127,30 @@ const style = StyleSheet.create({
         fontSize: 20,
         fontWeight: 900,
         fontFamily: "monospace",
-        left: 15,
-        top: 5,
+        // left: 15,
+        // top: 5,
         // backgroundColor: "yellow",
         width: "80%",
     },
     description: {
         color: "#1c1429",
         fontSize: 15,
-        alignItems: "center",
-        justifyContent: "center",
+        // alignItems: "center",
+        // justifyContent: "center",
         // backgroundColor: "yellow",
-        width: "85%",
-        height: 70,
-        top: -5,
+        width: "100%",
+        height: 200,
+        // top: -5,
     },
-    allergenBox: {
+    hobbyBox: {
         height: 20,
-        justifyContent: "flex-end",
-        left: -120,
+        alignItems: "center",
+        // justifyContent: "flex-end",
+        // left: -120,
         // backgroundColor: "yellow",
 
     },
-    allergens: {
+    hobby: {
         color: "#1c1429",
         fontSize: 12,
         // fontWeight: 600,
@@ -163,8 +162,8 @@ const style = StyleSheet.create({
         height: 30,
         justifyContent: "space-between",
         alignItems: "center",
-        left: -15,
-        top: -15,
+        // left: -15,
+        // top: -15,
         // alignItems: "flex-end",
     },
     plusButton: {

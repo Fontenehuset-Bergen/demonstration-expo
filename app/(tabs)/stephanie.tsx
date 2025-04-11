@@ -1,10 +1,11 @@
-import { Image, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput } from "react-native";
+import { Modal, Image, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput } from "react-native";
 import { Card } from "@/components/ui/card";
 import { Link } from "expo-router";
 import { Drinks, getPersons, getPosts, Person } from "@/lib/sanity";
 import { useState, useEffect } from "react";
 import { SmallCard } from "@/components/ui/smallCard";
 import { PeopleCard } from "@/components/ui/peopleCard";
+import { PeopleModal } from "@/components/modal/personmodal";
 
 
 export default function Stephanie() {
@@ -19,6 +20,8 @@ export default function Stephanie() {
     results()
   }, []);
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
 
   return (
     <ScrollView style={styles.body}>
@@ -51,19 +54,58 @@ export default function Stephanie() {
         <View style={styles.headerContainer}>
           <Text style={styles.title}>Cards</Text>
           <Text style={styles.descriptionText}>The elements below can f.ex. be used in a café menu, adding interactive actions to them and so on.</Text>
+
           {people && people.slice(0, 5).map((person) => (
-            <PeopleCard
+            <Pressable
               key={person.fullName}
-              hobby={person.hobby}
-              description={person.description}
-              fullName={person.fullName}
-              portrait={person.portrait}
-            />
+              onPress={() => {
+                setSelectedPerson(person);
+                setModalVisible(true);
+              }}
+            >
+              <PeopleCard
+                hobby={person.hobby}
+                description={person.description}
+                fullName={person.fullName}
+                portrait={person.portrait}
+                country={person.country}
+              />
+            </Pressable>
+
+
           ))}
+
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => setModalVisible(false)}>
+              
+
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)' }}>
+              <View >
+                {selectedPerson && (
+                  <PeopleModal
+                  hobby={selectedPerson.hobby}
+                  description={selectedPerson.description}
+                  fullName={selectedPerson.fullName}
+                  portrait={selectedPerson.portrait}
+                  country={selectedPerson.country}
+                  />
+                )}
+
+                <Pressable onPress={() => setModalVisible(false)} style={{ marginTop: 20, alignItems: 'center' }}>
+                  <Text style={{ color: 'pink' }}>Close</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+
           {drikker?.slice(0, 5).map((drink) => <SmallCard key={drink.title} allergens={drink.allergens} beskrivelse={drink.beskrivelse} title={drink.title} image={drink.image} />)}
+
         </View>
       </View>
-    </ScrollView>
+    </ScrollView >
   );
 }
 
