@@ -13,5 +13,6 @@ export interface Coffee{
 
 export async function getCoffee() {
    const result:Coffee[] = await client.fetch('*[_type=="coffee"] {"image": image.asset->url, nameofcoffee,price}')
+   console.log(result)
    return result
 }
