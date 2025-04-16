@@ -1,7 +1,18 @@
+import { Coffee, getCoffee } from "@/lib/sanity";
+import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 // Skift UniktNavn til noe du vill ha, BrukDenneNavneStilen
 export default function TestingKat() {
+  //logikk for å hente ting
+  const [data, updateData]=useState<Coffee[]>()
+  useEffect(()=> {
+    async function fetchData() {
+      const result = await getCoffee()
+      updateData(result)
+    }
+    fetchData()
+  },[])
   return (
     <View style={styles.container}>
       <Text>Dette er din personlige side</Text>
