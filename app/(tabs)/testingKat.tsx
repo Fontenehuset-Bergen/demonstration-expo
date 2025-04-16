@@ -17,6 +17,7 @@ export default function TestingKat() {
     <View style={styles.container}>
       <Text>Dette er din personlige side</Text>
       <Text>her kan du gjøre mye gøy! 🥳</Text>
+      {data?.map((item,index)=><Text key={index} >{item.nameofcoffee}</Text>)}
     </View>
   );
 }
