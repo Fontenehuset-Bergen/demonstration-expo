@@ -1,3 +1,4 @@
+import { SmallCard } from "@/components/ui/smallCard";
 import { Coffee, getCoffee } from "@/lib/sanity";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
@@ -17,7 +18,7 @@ export default function TestingKat() {
     <View style={styles.container}>
       <Text>Dette er din personlige side</Text>
       <Text>her kan du gjøre mye gøy! 🥳</Text>
-      {data?.map((item,index)=><Text key={index} >{item.nameofcoffee}</Text>)}
+      {data?.map((item,index)=><SmallCard key={index} image={item.image} nameofcoffee={item.nameofcoffee} price={item.price}></SmallCard>)}
     </View>
   );
 }
