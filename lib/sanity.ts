@@ -16,3 +16,7 @@ export async function getCoffee() {
    console.log(result)
    return result
 }
+
+export async function getPerson(){
+    
+}
