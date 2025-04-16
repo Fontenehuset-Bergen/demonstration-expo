@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Image, TouchableOpacity, ScrollView, TextInput } from "react-native";
-import { Card } from "@/components/ui/card";
+//import { Card } from "@/components/ui/card";
 import { Link } from "expo-router";
 
 export default function Index() {
@@ -9,7 +9,7 @@ export default function Index() {
     <View style={styles.headerContainer}>
           <Text style={styles.headerText}>React Native</Text>
         </View>
-      <Image style={styles.image} source= {require('@/assets/images/icon.png')}></Image>
+      <Image style={styles.image} source={require('@/assets/images/icon.png')}></Image>
       <View style ={styles.textContainer}>
         <Text style = {styles.text}>React Native Workshop</Text>
       </View>
@@ -23,15 +23,15 @@ export default function Index() {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>TouchableOpacity</Text>
         </TouchableOpacity>
-        <Pressable style={styles.modalButton}>
+       {/*  <Pressable style={styles.modalButton}>
           <Link href="/modal" style={styles.modalButtonText}>
             Let's open the modal!
           </Link>
+          </Pressable> */}
       </Pressable>
 
       <TextInput style={styles.textInputField}></TextInput>
-        <Card />
-        <Card />
+
       </View>    
     </ScrollView>
   );
